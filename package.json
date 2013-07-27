@@ -1,21 +1,21 @@
 {
-  "name": "ip-tag",
+  "name": "auth-active-directory",
   "types": ["module"],
   "version": "1.4",
-  "homepage": "http://github.com/shinken-monitoring/mod-ip-tag",
+  "homepage": "http://github.com/shinken-monitoring/mod-auth-active-directory",
   "author": "Jean Gabès",
-  "description": "Tag host by their IP ranges",
+  "description": "Active directory auth for WebUI",
   "contributors": [
     {
       "name": "Jean Gabès",
       "email": "naparuba@gmail.com"
     }
   ],
-  "repository": "https://github.com/shinken-monitoring/mod-ip-tag",
+  "repository": "https://github.com/shinken-monitoring/mod-auth-active-directory",
   "keywords": [
     "module",
-    "arbiter",
-    "ip"
+    "broker",
+    "WebUI"
   ],
   "dependencies": {
     "shinken": ">=1.4"
