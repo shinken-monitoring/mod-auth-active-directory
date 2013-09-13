@@ -234,6 +234,8 @@ class AD_Webui(BaseModule):
                 # Maybe the entry is void....
                 if self.auth_key in elts:
                     account_name = elts[self.auth_key][0]
+                else:
+                    account_name = user
             else: # For openldap, use the full DN
                 account_name = elts[self.auth_key]
         except KeyError:
