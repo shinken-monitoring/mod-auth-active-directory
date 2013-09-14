@@ -10,6 +10,10 @@
       "name": "Jean Gabès",
       "email": "naparuba@gmail.com"
     }
+    {
+      "name": "Cyrille Josselin",
+      "email": "cyrjoss@yahoo.fr"
+    }
   ],
   "repository": "https://github.com/shinken-monitoring/mod-auth-active-directory",
   "keywords": [
