@@ -228,6 +228,10 @@ class AD_Webui(BaseModule):
         # with j.gabes@google.com for example
         elts = self.find_contact_entry(c)
 
+        # no user found, exit
+        if elts is None:
+            return False
+
         try:
             # On AD take the uid / principalename
             if self.mode == 'ad':
