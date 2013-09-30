@@ -230,7 +230,7 @@ class AD_Webui(BaseModule):
 
         # no user found, exit
         if elts is None:
-            return false
+            return False
 
         try:
             # On AD take the uid / principalename
