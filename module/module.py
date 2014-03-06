@@ -105,7 +105,7 @@ class AD_Webui(BaseModule):
         self.con = ldap.initialize(self.ldap_uri)
         self.con.set_option(ldap.OPT_REFERRALS, 0)
 
-        logger.debug("[Active Directory UI] Trying to connect to AD/Ldap %s with user %s and password %s on baseDN %s" % (self.ldap_uri, self.username, self.password, self.basedn))
+        logger.debug("[Active Directory UI] Trying to connect to AD/Ldap %s with user %s  on baseDN %s" % (self.ldap_uri, self.username, self.basedn))
         # Any errors will throw an ldap.LDAPError exception
         # or related exception so you can ignore the result
         self.con.simple_bind_s(self.username, self.password)
@@ -253,7 +253,7 @@ class AD_Webui(BaseModule):
         # or related exception so you can ignore the result
         try:
             local_con.simple_bind_s(account_name, password)
-            logger.info("[Active Directory UI] AD/Ldap Connection done with user %s and password %s" % (user, password))
+            logger.info("[Active Directory UI] AD/Ldap Connection done with user %s " % user)
             return True
         except ldap.LDAPError, exp:
             logger.error("[Active Directory UI] Ldap auth error: %s" % str(exp))
