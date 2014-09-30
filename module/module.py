@@ -40,7 +40,7 @@ from shinken.basemodule import BaseModule
 
 
 properties = {
-    'daemons': ['webui', 'skonf'],
+    'daemons': ['webui', 'skonf', 'synchronizer'],
     'type': 'ad_webui'
     }
 
@@ -133,13 +133,19 @@ class AD_Webui(BaseModule):
         # available, so we will get a drop after one day...
         self.connect()
 
-        logger.info("[Active Directory UI] AD/LDAP: search for contact %s" % contact.get_name())
+        # In the synchronizer the object can be a dict
+        if isinstance(contact, dict):
+            cname = contact.get('contact_name', '')
+            email = contact.get('email', '')
+        else:
+            cname = contact.get_name()
+            email = contact.email
+
+        logger.info("[Active Directory UI] AD/LDAP: search for contact %s" % cname)
         searchScope = ldap.SCOPE_SUBTREE
         ## retrieve all attributes
         #retrieveAttributes = ["userPrincipalName", "thumbnailPhoto", "samaccountname", "email"]
 
-        cname = contact.get_name()
-        email = contact.email
         searchFilter = self.search_format % (cname, email)
         logger.info("[Active Directory UI] Filter %s" % str(searchFilter))
         try:
